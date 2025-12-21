@@ -16,6 +16,8 @@ class Solution {
         //     answer[i] = list.get(i);
         // }
         
+        
+        // Stream을 사용해 List<Integer>를 int[]로 변환
         return list.stream()
                    .mapToInt(Integer::intValue)
                    .toArray();
