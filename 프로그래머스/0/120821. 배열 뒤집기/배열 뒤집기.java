@@ -7,5 +7,11 @@ class Solution {
         }
         
         return answer;
+        
+        // 다른 사람 풀이
+//         List<Integer> list = Arrays.stream(numList).boxed().collect(Collectors.toList());
+
+//         Collections.reverse(list);
+//         return list.stream().mapToInt(Integer::intValue).toArray();
     }
 }
