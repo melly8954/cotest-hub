@@ -1,12 +1,15 @@
+import java.util.stream.*;
+
 class Solution {
     public int[] solution(int[] numbers, int num1, int num2) {
-        int[] answer = new int[num2 - num1 + 1];
-        int idx = 0;
+//         int[] answer = new int[num2 - num1 + 1];
+//         int idx = 0;
         
-        for(int i = num1; i <= num2; i++){
-            answer[idx++] = numbers[i];
-        }
+//         for(int i = num1; i <= num2; i++){
+//             answer[idx++] = numbers[i];
+//         }
         
-        return answer;
+//         return answer;
+        return IntStream.rangeClosed(num1,num2).map(i -> numbers[i]).toArray();
     }
 }
