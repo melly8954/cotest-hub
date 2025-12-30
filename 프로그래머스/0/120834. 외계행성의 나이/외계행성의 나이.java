@@ -1,7 +1,7 @@
 class Solution {
     public String solution(int age) {
         String strAge = String.valueOf(age);
-        StringBuilder sb = new StringBuilder();
+        String answer = "";
 
         for (int i = 0; i < strAge.length(); i++) {
             char digitChar = strAge.charAt(i);
@@ -9,9 +9,9 @@ class Solution {
             int digit = digitChar - '0';
             // 'c' = 'a' + 2
             char alien = (char) ('a' + digit);   
-            sb.append(alien);
+            answer += alien;
         }
 
-        return sb.toString();
+        return answer;
     }
 }
