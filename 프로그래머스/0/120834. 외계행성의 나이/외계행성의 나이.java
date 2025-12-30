@@ -4,8 +4,10 @@ class Solution {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < strAge.length(); i++) {
-            char digitChar = strAge.charAt(i);   
-            int digit = digitChar - '0';         
+            char digitChar = strAge.charAt(i);
+            // 2 = 50 - 48
+            int digit = digitChar - '0';
+            // 'c' = 'a' + 2
             char alien = (char) ('a' + digit);   
             sb.append(alien);
         }
