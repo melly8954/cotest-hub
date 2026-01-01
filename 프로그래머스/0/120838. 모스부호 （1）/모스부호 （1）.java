@@ -12,10 +12,10 @@ class Solution {
             morseMap.put(MORSE[i], (char)('a' + i) );
         }
         
-        String word[] = letter.split(" ");
+        String words[] = letter.split(" ");
         
-        for(int i = 0; i<word.length; i++){
-            answer += morseMap.get(word[i]);
+        for(String word : words){
+            answer += morseMap.get(word);
         }
         
         return answer;
