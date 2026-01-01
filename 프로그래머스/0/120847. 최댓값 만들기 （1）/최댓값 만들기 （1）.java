@@ -19,5 +19,9 @@ class Solution {
         answer = max1 * max2;
         
         return answer;
+        
+        // 다른 간단한 풀이
+        // Arrays.sort(numbers);
+        // return numbers[numbers.length - 1] * numbers[numbers.length - 2];
     }
 }
