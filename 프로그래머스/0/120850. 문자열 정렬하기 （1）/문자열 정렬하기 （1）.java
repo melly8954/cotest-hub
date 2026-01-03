@@ -13,11 +13,13 @@ class Solution {
         
         Collections.sort(list);
         
-        int[] answer = new int[list.size()];
+//         int[] answer = new int[list.size()];
         
-        for(int i = 0; i < list.size(); i++){
-            answer[i] = list.get(i);
-        }
+//         for(int i = 0; i < list.size(); i++){
+//             answer[i] = list.get(i);
+//         }
+        
+        int[] answer = list.stream().mapToInt(i -> i).toArray();
         
         return answer;        
     }
