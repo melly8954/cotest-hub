@@ -14,10 +14,16 @@ class Solution {
             }
         }
         
-        int[] answer = new int[list.size()];
-        for(int i = 0; i<list.size(); i++){
-            answer[i] = list.get(i);
-        }
+        // int[] answer = new int[list.size()];
+        // for(int i = 0; i<list.size(); i++){
+        //     answer[i] = list.get(i);
+        // }
+        
+        // stream api
+        int[] answer = list.stream()
+                   .mapToInt(Integer::intValue)
+                   .toArray();
+        
         return answer;
     }
 }
