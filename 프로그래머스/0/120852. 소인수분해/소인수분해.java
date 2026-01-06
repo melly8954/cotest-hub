@@ -21,7 +21,7 @@ class Solution {
         
         // stream api
         int[] answer = list.stream()
-                   .mapToInt(Integer::intValue)
+                   .mapToInt(i -> i)
                    .toArray();
         
         return answer;
