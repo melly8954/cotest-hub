@@ -15,6 +15,7 @@ class Solution {
                 answer = num;
             }
         }
+
         return answer;
     }
 }
