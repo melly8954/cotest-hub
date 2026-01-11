@@ -1,6 +1,7 @@
 class Solution {
     public int solution(int num, int k) {
-//         int answer = 0;
+//         // k가 없는 경우 초기값 -1
+//         int answer = -1;
         
 //         String num_str = String.valueOf(num);
         
@@ -12,9 +13,7 @@ class Solution {
 //             if(n == k){
 //                 answer = i+1;
 //                 break;
-//             } else{
-//                 answer = -1;
-//             }
+//             } 
 //         }
         
 //         return answer;
