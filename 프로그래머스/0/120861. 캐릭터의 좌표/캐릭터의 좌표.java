@@ -18,8 +18,7 @@ class Solution {
                 answer[1]--;
             }
         }
-        System.out.println(answer[0]);
-        System.out.println(answer[1]);
+        
         return answer;
     }
 }
