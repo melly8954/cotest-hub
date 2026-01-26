@@ -21,5 +21,19 @@ class Solution {
         }
 
         return sum;
+        
+        // 다른 풀이 (1)
+//         int sum = 0;
+
+//         // 숫자가 아닌 문자를 기준으로 분리
+//         String[] numbers = my_string.split("[a-zA-Z]");
+
+//         for (String num : numbers) {
+//             if (!num.isEmpty()) {
+//                 sum += Integer.parseInt(num);
+//             }
+//         }
+
+//         return sum;
     }
 }
