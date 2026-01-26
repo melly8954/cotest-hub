@@ -28,5 +28,19 @@ class Solution {
         }
         
         return answer;
+        
+        // 다른 풀이
+//         Arrays.sort(spell);
+
+//         for (String d : dic) {
+//             String[] dSplit = d.split("");
+//             Arrays.sort(dSplit);
+
+//             if (Arrays.equals(dSplit, spell)) {
+//                 return 1;
+//             }
+//         }
+
+//         return 2;
     }
 }
