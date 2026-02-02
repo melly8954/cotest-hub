@@ -1,16 +1,16 @@
 class Solution {
     public int solution(int chicken) {
-        int answer = 0;
-        int r_coupon = 0;
+        int service = 0;
+        int coupon = 0;
         int total;
         
-        while(chicken + r_coupon > 9) {
-            total = chicken + r_coupon;
-            answer += total / 10;
-            r_coupon = total % 10;
+        while(chicken + coupon > 9) {
+            total = chicken + coupon;
+            service += total / 10;
+            coupon = total % 10;
             chicken = total / 10;
         }    
         
-        return answer;
+        return service;
     }
 }
