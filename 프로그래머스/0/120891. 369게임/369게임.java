@@ -5,10 +5,10 @@ class Solution {
         int cnt = 0;
         
         String str = String.valueOf(order);
-        char[] ch = str.toCharArray();
         
-        for(int i = 0; i < ch.length; i++) {
-            int n = ch[i] - '0';
+        for(int i = 0; i < str.length(); i++) {
+            int n = str.charAt(i) - '0';
+            
             if(n == 3 || n == 6 || n == 9) {
                 cnt ++;
             }
