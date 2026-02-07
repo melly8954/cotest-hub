@@ -20,6 +20,7 @@ class Solution {
                     rank ++;
                 }
             }
+            
             result[i] = rank;
         }
         
