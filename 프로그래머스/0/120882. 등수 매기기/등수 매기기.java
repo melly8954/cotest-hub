@@ -2,31 +2,28 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int[][] score) {
-        int[] answer = new int[score.length];
         double[] avg = new double[score.length];
+        int[] result = new int[score.length];
         
         for(int i = 0; i < score.length; i++) {
-            for(int j = 0; j < score[i].length; j++) {
-                avg[i] = (score[i][0] + score[i][1]) / 2.0;
-            }
+            avg[i] = (score[i][0] + score[i][1]) / (double) 2;
         }
         
-        double[] sorted = avg.clone();
-        Arrays.sort(sorted);
+        double[] avg_clone = avg.clone();
+        Arrays.sort(avg_clone);
         
         for(int i = 0; i < avg.length; i++) {
             int rank = 1;
             
-            for(int j = 0; j < avg.length; j++){
-                if(avg[i] < sorted[j]) {
+            for(int j = 0; j < avg.length; j++) {
+                if(avg[i] < avg_clone[j]) {
                     rank ++;
                 }
             }
-            
-            answer[i] = rank;
+            result[i] = rank;
         }
         
-        return answer;
+        return result;
     }
 }
 
