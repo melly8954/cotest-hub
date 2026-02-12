@@ -9,9 +9,7 @@ class Solution {
         
         for (int i = 0; i < token.length; i++) {
             token[i] = copy[copy.length - 1 - i];    
-        }
-        
-        
+        }   
         
         StringBuilder sb = new StringBuilder();
         
