@@ -1,19 +1,19 @@
 class Solution {
-    public int solution(int left, int right) {
-        int sum = 0;
+//     public int solution(int left, int right) {
+//         int sum = 0;
         
-        for (int i = left; i <= right; i++) {
-            int d = getDivide(i);
+//         for (int i = left; i <= right; i++) {
+//             int d = getDivide(i);
             
-            if (d % 2 == 0) {
-                sum += i;
-            } else {
-                sum -= i;
-            }
-        }
+//             if (d % 2 == 0) {
+//                 sum += i;
+//             } else {
+//                 sum -= i;
+//             }
+//         }
         
-        return sum;
-    }
+//         return sum;
+//     }
     
 //     private int getDivide(int n) {
 //         int cnt = 0;
@@ -31,19 +31,23 @@ class Solution {
 //     }
     
     // 완전 제곱 수 방식
-    private int getDivide(int n) {
-        int cnt = 0;
-
-        for (int i = 1; i * i <= n; i++) {
-            if (n % i == 0) {
-                if (i * i == n) {
-                    cnt++;        // 완전제곱수
-                } else {
-                    cnt += 2;     // (i, n/i)
-                }
+    public int solution(int left, int right) {
+        int sum = 0;
+        
+        for (int i = left; i <= right; i++) {
+            if (isPerfectSquare(i)) {
+                sum -= i;
+            } else {
+                sum += i;
             }
         }
+        
+        return sum;
+    }
     
-        return cnt;
-    }    
+    private boolean isPerfectSquare(int n) {
+        int sqrt = (int)Math.sqrt(n);
+        return sqrt * sqrt == n;
+    }
+    
 }
