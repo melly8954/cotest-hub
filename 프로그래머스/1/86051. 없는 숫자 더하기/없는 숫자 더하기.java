@@ -15,5 +15,21 @@ class Solution {
         }
         
         return sum;
+        
+        // boolean 풀이
+//         int sum = 0;
+//         boolean[] exists = new boolean[10];
+        
+//         for (int n : numbers) {
+//             exists[n] = true;
+//         }
+
+//         for (int i = 0; i < 10; i++) {
+//             if (!exists[i]) {
+//               sum += i;  
+//             } 
+//         }
+
+//         return sum;
     }
 }
