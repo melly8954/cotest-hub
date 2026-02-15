@@ -8,7 +8,7 @@ class Solution {
         }
         
         while (n != 1) {
-            if (idx > 500) {
+            if (idx == 500) {
                 return -1;
             }
             
