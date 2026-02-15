@@ -1,21 +1,17 @@
 class Solution {
     public long solution(int a, int b) {
         long sum = 0;
-        int i = 0;
-        int j = 0;
         
         if (a > b) {
-            i = b;
-            j = a;
+            for (int i = b; i <= a; i++) {
+                sum += i;
+            }
         } else if (a < b) {
-            i = a;
-            j = b;
+            for (int i = a; i <= b; i++) {
+                sum += i;
+            }
         } else {
             return a;
-        }
-        
-        for (int idx = i; idx <= j; idx++) {
-            sum += idx;
         }
         
         return sum;
