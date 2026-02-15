@@ -2,14 +2,14 @@ class Solution {
     public int solution(int[] numbers) {
         int sum = 0;
         
-        String numStr = "";
+        StringBuilder sb = new StringBuilder();
         String zeroToTen = "0123456789";
         for (int n : numbers) {
-            numStr += String.valueOf(n);
+            sb.append(String.valueOf(n));
         } 
         
         for (String token : zeroToTen.split("")) {
-            if (!numStr.contains(token)) {
+            if (!sb.toString().contains(token)) {
                 sum += Integer.parseInt(token);
             }
         }
