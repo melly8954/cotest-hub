@@ -1,11 +1,11 @@
 class Solution {
     public boolean solution(String s) {
-        boolean result = false;
+        boolean lenFlag = false;
         boolean allDigitFlag = true;
         
         int len = s.length();
         if (len == 4 || len == 6) {
-            result = true;
+            lenFlag = true;
         }
         
         char[] ch = s.toCharArray();
@@ -16,6 +16,6 @@ class Solution {
             }
         }
         
-        return result && allDigitFlag;
+        return lenFlag && allDigitFlag;
     }
 }
