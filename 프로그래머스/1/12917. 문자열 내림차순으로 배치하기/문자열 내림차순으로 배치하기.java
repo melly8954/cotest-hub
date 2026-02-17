@@ -1,17 +1,23 @@
 import java.util.*;
+import java.util.stream.*;
 
 class Solution {
     public String solution(String s) {
-        StringBuilder sb = new StringBuilder();
-        char[] ch = s.toCharArray();
+//         StringBuilder sb = new StringBuilder();
+//         char[] ch = s.toCharArray();
         
-        Arrays.sort(ch);
+//         Arrays.sort(ch);
         
         
-        for (int i = 0; i < ch.length; i++) {
-            sb.append(ch[ch.length - 1 - i]);
-        }
+//         for (int i = 0; i < ch.length; i++) {
+//             sb.append(ch[ch.length - 1 - i]);
+//         }
         
-        return sb.toString();
+//         return sb.toString();
+        
+        // Stream API 사용
+        String[] token = s.split("");
+        
+        return Arrays.stream(token).sorted(Collections.reverseOrder()).collect(Collectors.joining());
     }
 }
