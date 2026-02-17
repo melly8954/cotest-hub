@@ -7,16 +7,11 @@ class Solution {
         
         Arrays.sort(ch);
         
-        char[] clone = ch.clone();
         
-        for (int i = 0; i < clone.length; i++) {
-            ch[i] = clone[clone.length - 1 - i];
-            
-            sb.append(ch[i]);
+        for (int i = 0; i < ch.length; i++) {
+            sb.append(ch[ch.length - 1 - i]);
         }
         
         return sb.toString();
-        
-        
     }
 }
