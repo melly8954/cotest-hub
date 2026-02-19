@@ -29,20 +29,35 @@ class Solution {
         int width = (int) (max.x - min.x + 1);
         int height = (int) (max.y - min.y + 1);            
             
+        // 최소/최대 좌표를 이용해 필요한 크기만큼 2차원 배열 생성
         char[][] arr = new char[height][width];
         for (char[] row : arr) {
             Arrays.fill(row, '.');
         }
         
+        // x 변환: 좌표 최소값을 빼서 배열 0부터 시작.
+        // y 변환: 좌표계와 배열 인덱스 방향이 반대라서 max.y - p.y로 뒤집음
         for (Point p : points) {
+            // 배열에서 x 인덱스 계산
+            // 실제 좌표 x를 최소 x 기준으로 0부터 시작하도록 변환
+            // 예: 실제 좌표 x=5, min.x=2 → 배열에서 x 인덱스 3
             int x = (int) (p.x - min.x);
+
+            // 배열에서 y 인덱스 계산
+            // 실제 좌표 y는 위쪽이 큰 값이므로
+            // 배열은 위쪽이 0이 되도록 max.y 기준으로 반전
+            // 예: 실제 좌표 y=1, max.y=4 → 배열에서 y 인덱스 3 (아래쪽)
             int y = (int) (max.y - p.y);
             
             arr[y][x] = '*';
         }
         
+        // char[][] → String[] 변환
+        // arr.length == height (행 개수)
+        // arr[i].length == width (열 개수)
         String[] result = new String[arr.length];
         for (int i = 0; i < result.length; i++) {
+            // 각 행(arr[i], 길이 == width)을 문자열로 만들어 result[i]에 담음
             result[i] = new String(arr[i]);
         }
         
@@ -68,8 +83,8 @@ class Solution {
             return null;  // 교점이 없으므로 null 반환
         }
         
-        double x = (double) (n * b) - (m * d) / (a * d - b * c);
-        double y = (double) (m * c) - (n * a) / (a * d - b * c);
+        double x = (double) (n * b - m * d) / (a * d - b * c);
+        double y = (double) (m * c - n * a) / (a * d - b * c);
         
         // 소수점 아래 자리를 확인하는 용도
         // 1로 나눴을 때 소수일 경우 null
