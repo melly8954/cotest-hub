@@ -68,8 +68,8 @@ class Solution {
             return null;  // 교점이 없으므로 null 반환
         }
         
-        double x = (double) (n * b - m * d) / (a * d - b * c);
-        double y = (double) (m * c - n * a) / (a * d - b * c);
+        double x = (double) (n * b) - (m * d) / (a * d - b * c);
+        double y = (double) (m * c) - (n * a) / (a * d - b * c);
         
         // 소수점 아래 자리를 확인하는 용도
         // 1로 나눴을 때 소수일 경우 null
