@@ -6,9 +6,6 @@ class Solution {
 //         StringBuilder sb = new StringBuilder();
 //         char[] ch = s.toCharArray();
         
-//         Arrays.sort(ch);
-        
-        
 //         for (int i = 0; i < ch.length; i++) {
 //             sb.append(ch[ch.length - 1 - i]);
 //         }
@@ -18,6 +15,8 @@ class Solution {
         // Stream API 사용
         String[] token = s.split("");
         
-        return Arrays.stream(token).sorted(Collections.reverseOrder()).collect(Collectors.joining());
+        return Arrays.stream(token)
+        			 .sorted(Collections.reverseOrder())
+                     .collect(Collectors.joining());
     }
 }
