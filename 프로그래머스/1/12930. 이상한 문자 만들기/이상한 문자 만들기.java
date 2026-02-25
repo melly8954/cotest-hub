@@ -5,20 +5,21 @@ class Solution {
         
         
         for (int i = 0; i < s.length(); i++) {
-    char ch = s.charAt(i);
+            char ch = s.charAt(i);
 
-    if (ch == ' ') {
-        sb.append(' ');
-        index = 0;
-    } else {
-        if (index % 2 == 0) {
-            sb.append(Character.toUpperCase(ch));
-        } else {
-            sb.append(Character.toLowerCase(ch));
+            if (index % 2 == 0) {
+                ch = Character.toUpperCase(ch);
+            } else {
+                ch = Character.toLowerCase(ch);
+            }
+
+            if (ch == ' ') {
+                index = -1;
+            }
+
+            sb.append(ch);
+            index++;
         }
-        index++;
-    }
-}
         
         return sb.toString();
     }
