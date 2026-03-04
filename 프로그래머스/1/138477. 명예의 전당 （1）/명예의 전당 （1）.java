@@ -20,5 +20,21 @@ class Solution {
         }
         
         return result;
+        
+        // 최소 힙
+//         PriorityQueue<Integer> heap = new PriorityQueue<>(); // 최소 힙
+//         int[] result = new int[score.length];
+
+//         for (int i = 0; i < score.length; i++) {
+//             heap.add(score[i]); // 점수 추가
+
+//             if (heap.size() > k) {
+//                 heap.poll(); // heap 크기 k 유지 (루트 제거)
+//             }
+
+//             result[i] = heap.peek(); // 루트값 = 현재 상위 k점 최솟값
+//         }
+
+//         return result;
     }
 }
