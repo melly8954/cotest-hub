@@ -1,6 +1,5 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -11,22 +10,22 @@ public class Main {
         for (int idx = 0; idx < T; idx++) {
             String input = br.readLine();
 
-            Stack<Character> stack = new Stack<>();
+            int sum = 0;
             boolean check = true;
 
             for (int i = 0; i < input.length(); i++) {
                 if ('(' == input.charAt(i)) {
-                    stack.push(input.charAt(i));
+                    sum ++;
                 } else {
-                    if (stack.isEmpty()) {
+                    sum --;
+
+                    if (sum < 0) {
                         check = false;
-                        break;
                     }
-                    stack.pop();
                 }
             }
 
-            if (stack.isEmpty() && check) {
+            if (sum == 0 && check) {
                 System.out.println("YES");
             } else {
                 System.out.println("NO");
