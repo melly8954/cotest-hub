@@ -11,12 +11,16 @@ public class Main {
         Stack<Character> stack = new Stack<>();
 
         int answer = 0;
+        char prev = ' ';
+
 
         for(int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == '(' ) {
+            char current = s.charAt(i);
+
+            if (current == '(' ) {
                 stack.push('(');
             } else {
-                if (i > 0 && s.charAt(i - 1 ) == '(') {
+                if (prev == '(') {
                     stack.pop();
                     answer += stack.size();
                 } else {
@@ -24,6 +28,8 @@ public class Main {
                     answer += 1;
                 }
             }
+
+            prev = current;
         }
         System.out.println(answer);
     }
