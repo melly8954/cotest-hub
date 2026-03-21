@@ -1,5 +1,5 @@
-import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.BufferedReader;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
@@ -75,24 +75,24 @@ public class Main {
 
         // 더 이상 탐색할 좌표가 없을 때까지 탐색을 의미하는 반복문
         while (!queue.isEmpty()) {
-            int[] now = queue.poll();
+            int[] select = queue.poll();
             // 큐는 배열 형태라서 변수로 뽑아냄
-            int currentX = now[0];
-            int currentY = now[1];
+            int currentX = select[0];
+            int currentY = select[1];
 
             // 상하좌우 좌표(4방향) 탐색
             for (int d = 0; d < 4; d++) {
-                int nowX = currentX + moveX[d];
-                int nowY = currentY + moveY[d];
+                int nextX = currentX + moveX[d];
+                int nextY = currentY + moveY[d];
 
                 // 조건 체크
-                if ((nowX >= 0 && nowX < n && nowY >= 0 && nowY < m)
-                        && field[nowX][nowY] == 1
-                        && !visited[nowX][nowY]) {
+                if ((nextX >= 0 && nextX < n && nextY >= 0 && nextY < m)
+                        && field[nextX][nextY] == 1
+                        && !visited[nextX][nextY]) {
 
                     // 방문 처리 + 큐 추가
-                    visited[nowX][nowY] = true;
-                    queue.offer(new int[]{nowX, nowY});
+                    visited[nextX][nextY] = true;
+                    queue.offer(new int[]{nextX, nextY});
                     area++;
                 }
             }
