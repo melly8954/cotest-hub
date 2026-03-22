@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Main {
-    static int n, m;
+    static int y, x;
     static int[][] field;
     static boolean[][] visited;
 
@@ -16,26 +16,26 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        n = Integer.parseInt(st.nextToken());   // 세로 길이
-        m = Integer.parseInt(st.nextToken());   // 가로 길이
+        y = Integer.parseInt(st.nextToken());   // 세로 길이
+        x = Integer.parseInt(st.nextToken());   // 가로 길이
 
-        field = new int[n][m];
-        visited = new boolean[n][m];
+        field = new int[y][x];
+        visited = new boolean[y][x];
 
         int cnt = 0;    // 그림 개수
         int maxArea = 0;   // 그림 넓이
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < y; i++) {
             st = new StringTokenizer(br.readLine());
 
-            for (int j = 0; j < m; j++) {
+            for (int j = 0; j < x; j++) {
                 field[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
         // 전체 탐색
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
+        for (int i = 0; i < y; i++) {
+            for (int j = 0; j < x; j++) {
                 if (field[i][j] == 1 && !visited[i][j]) {
                     // 1. BFS 풀이
                     // int area = bfs(i,j);
@@ -86,7 +86,7 @@ public class Main {
                 int nextY = currentY + moveY[d];
 
                 // 조건 체크
-                if ((nextX >= 0 && nextX < n && nextY >= 0 && nextY < m)
+                if ((nextX >= 0 && nextX < Main.y && nextY >= 0 && nextY < Main.x)
                         && field[nextX][nextY] == 1
                         && !visited[nextX][nextY]) {
 
@@ -125,7 +125,7 @@ public class Main {
             int nowY = y + moveY[d];
 
             // 조건 체크 (경계 밖, 이미 방문, 그림이 아닌 곳(0)은 skip)
-            if (nowX < 0 || nowX >= n || nowY < 0 || nowY >= m) continue;
+            if (nowX < 0 || nowX >= Main.y || nowY < 0 || nowY >= Main.x) continue;
             if (visited[nowX][nowY]) continue;
             if (field[nowX][nowY] == 0) continue;
 
