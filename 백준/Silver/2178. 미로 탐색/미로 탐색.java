@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Main {
-    static int n, m;
+    static int row, col;
     static int[][] maze;
     static int[][] dist;
 
@@ -16,15 +16,15 @@ public class Main {
         BufferedReader br = new BufferedReader((new InputStreamReader(System.in)));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        n = Integer.parseInt(st.nextToken());   // 세로
-        m = Integer.parseInt(st.nextToken());   // 가로
+        row = Integer.parseInt(st.nextToken());   // 세로
+        col = Integer.parseInt(st.nextToken());   // 가로
 
-        maze = new int[n][m];   // 미로 크기(n * m)
-        dist = new int[n][m];   // 해당 구역[n][m]까지의 최소거리
+        maze = new int[row][col];   // 미로 크기(row * col)
+        dist = new int[row][col];   // 해당 구역[row][col]까지의 최소거리
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < row; i++) {
             String s = br.readLine();   // 한줄 읽기
-            for (int j = 0; j < m; j++) {
+            for (int j = 0; j < col; j++) {
                 maze[i][j] = s.charAt(j) - '0';
             }
         }
@@ -42,8 +42,8 @@ public class Main {
             int curX = select[0];
             int curY = select[1];
 
-            // 목적지(n, m)에 도착했다면 즉시 거리 반환
-            if (curX == n - 1 && curY == m - 1) {
+            // 목적지(y, x)에 도착했다면 즉시 거리 반환
+            if (curX == Main.row - 1 && curY == Main.col - 1) {
                 return dist[curX][curY];
             }
 
@@ -53,7 +53,7 @@ public class Main {
                 int nextY = curY + moveY[d];
 
                 // 조건 체크
-                if (nextX < 0 || nextX >= n || nextY < 0 || nextY >= m) continue;
+                if (nextX < 0 || nextX >= Main.row || nextY < 0 || nextY >= Main.col) continue;
 
                 // 이동 불가 검사
                 if (maze[nextX][nextY] == 0) continue;
@@ -67,7 +67,7 @@ public class Main {
 
             }
         }
-        
+
         return 0;
     }
 }
