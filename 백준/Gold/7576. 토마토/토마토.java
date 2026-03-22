@@ -3,7 +3,7 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class Main {
-    static int y, x;
+    static int row, col;
     static int[][] container;
 
     static int[] moveX = {1, -1, 0, 0};
@@ -13,17 +13,17 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        x = Integer.parseInt(st.nextToken()); // 가로
-        y = Integer.parseInt(st.nextToken()); // 세로
+        col = Integer.parseInt(st.nextToken()); // 가로
+        row = Integer.parseInt(st.nextToken()); // 세로
 
-        container = new int[y][x];
+        container = new int[row][col];
 
         Queue<int[]> queue = new LinkedList<>();
 
         // 처음 익어 있는 토마토 구하기
-        for (int i = 0; i < y; i++) {
+        for (int i = 0; i < row; i++) {
             st = new StringTokenizer(br.readLine());
-            for (int j = 0; j < x; j++) {
+            for (int j = 0; j < col; j++) {
                 container[i][j] = Integer.parseInt(st.nextToken());
 
                 if (container[i][j] == 1) {
@@ -37,8 +37,8 @@ public class Main {
         int day = 0;
 
         // 전체 탐색
-        for (int i = 0; i < y; i++) {
-            for (int j = 0; j < x; j++) {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
                 // 익지 못한 토마토가 있으면 실패
                 if (container[i][j] == 0) {
                     System.out.println(-1);
@@ -64,7 +64,7 @@ public class Main {
                 int nextY = curY + moveY[i];
 
                 // 범위 체크
-                if (nextX < 0 || nextX >= y || nextY < 0 || nextY >= x) {
+                if (nextX < 0 || nextX >= row || nextY < 0 || nextY >= col) {
                     continue;
                 }
 
