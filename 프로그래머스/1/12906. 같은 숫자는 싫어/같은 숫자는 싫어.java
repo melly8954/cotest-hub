@@ -20,14 +20,31 @@ public class Solution {
 //         return result;
         
         // 다른 풀이
-        List<Integer> list = new ArrayList<>();
+//         List<Integer> list = new ArrayList<>();
         
-        for (int n : arr) {
-            if (list.isEmpty() || list.get(list.size() - 1) != n) {
-                list.add(n);
+//         for (int n : arr) {
+//             if (list.isEmpty() || list.get(list.size() - 1) != n) {
+//                 list.add(n);
+//             }
+//         }
+        
+//         return list.stream().mapToInt(i -> i).toArray();
+        
+        Stack<Integer> stack = new Stack<>();
+        stack.push(arr[0]);
+        
+        for (int i = 1; i < arr.length; i++) {
+            if (stack.peek() != arr[i]) {
+                stack.push(arr[i]);
             }
         }
+
+        int[] answer = new int[stack.size()];
         
-        return list.stream().mapToInt(i -> i).toArray();
+        for (int i = answer.length - 1; i >= 0; i--) {
+            answer[i] = stack.pop();
+        }
+
+        return answer;
     }
 }
