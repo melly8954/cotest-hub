@@ -1,32 +1,59 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.PriorityQueue;
 
 class Solution {
     public int solution(int[] priorities, int location) {
+//         int cnt = 0;
+
+//         Queue<Process> queue = new LinkedList<>();
+
+//         for (int i = 0; i < priorities.length; i++) {
+//             queue.offer(new Process(i, priorities[i]));
+//         }
+
+//         while (!queue.isEmpty()) {
+//             Process current = queue.poll();
+
+//             boolean hasHigherPriority = false;
+
+//             for (Process p : queue) {
+//                 if (p.priority > current.priority) {
+//                     hasHigherPriority = true;
+//                     break;
+//                 }
+//             }
+
+//             if (hasHigherPriority) {
+//                 queue.offer(current);
+//             } else {
+//                 cnt++;
+
+//                 if (current.index == location) {
+//                     return cnt;
+//                 }
+//             }
+//         }
+
+//         return 0;
         int cnt = 0;
 
         Queue<Process> queue = new LinkedList<>();
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> Integer.compare(b, a));
 
         for (int i = 0; i < priorities.length; i++) {
             queue.offer(new Process(i, priorities[i]));
+            pq.offer(priorities[i]);
         }
 
         while (!queue.isEmpty()) {
             Process current = queue.poll();
 
-            boolean hasHigherPriority = false;
-
-            for (Process p : queue) {
-                if (p.priority > current.priority) {
-                    hasHigherPriority = true;
-                    break;
-                }
-            }
-
-            if (hasHigherPriority) {
+            if (current.priority < pq.peek()) {
                 queue.offer(current);
             } else {
                 cnt++;
+                pq.poll();
 
                 if (current.index == location) {
                     return cnt;
