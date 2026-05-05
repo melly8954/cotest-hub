@@ -5,6 +5,7 @@ class Solution {
         int[] result = new int[commands.length];
         
         for (int i = 0; i < commands.length; i++) {
+            // 변수 위치 주의
             List<Integer> list = new ArrayList<>();
                 
             int start = commands[i][0];
